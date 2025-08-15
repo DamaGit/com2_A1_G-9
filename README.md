@@ -1,10 +1,10 @@
 # 📡 REPOSITORIO COMUNICACIONES II
+Dentro de este repositorio encontrará de manera organizada todos los pasos desarrollados en cada práctica de laboratorio de la asignatura **Comunicaciones II**.
 
 <table width="100%">
 <tr>
 <td>
 
-Dentro de este repositorio encontrará de manera organizada todos los pasos desarrollados en cada práctica de laboratorio de la asignatura **Comunicaciones II**.
 
 ## 📂 Contenido
 - **Instrucciones paso a paso** para la ejecución de cada práctica.  
