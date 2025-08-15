@@ -1,6 +1,5 @@
 <<<<<<< HEAD
 # REPOSITORIO COMUNICACIONES II
-Dentro de este repositoroio encontrara los pasos de cada practica como tambien imagenes y tablas que se realizaron durante el desarrollo de las practicas de laboratorio.,,
 =======
 # 📡 REPOSITORIO COMUNICACIONES II
 
