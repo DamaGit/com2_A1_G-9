@@ -18,6 +18,5 @@ Este material tiene como finalidad servir como apoyo para:
   <img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/8c8a0cbe-f396-4efe-b7fd-681e035f18ef" />
 </p>
 
->>>>>>> 913c13dcde40fdf3a61173145c28a508ac102524
 
 
