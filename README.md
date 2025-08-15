@@ -17,7 +17,8 @@ Este material tiene como finalidad servir como apoyo para:
 <p align="center">
   <img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/8c8a0cbe-f396-4efe-b7fd-681e035f18ef" />
 </p>
-<img width="840" height="859" alt="image" src="https://github.com/user-attachments/assets/09ee68a3-c28b-479f-8c84-7135a0cbfc5a" />
 
 
 
+
+<img width="400" height="400" alt="universidad-industrial-de-santander-vector-logo" src="https://github.com/user-attachments/assets/c3706c58-b800-44cf-ba11-36ac2561635c" />
