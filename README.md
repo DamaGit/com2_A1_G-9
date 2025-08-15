@@ -1,6 +1,6 @@
 # 📡 REPOSITORIO COMUNICACIONES II
 
-<table width="50%">
+<table width="100%">
 <tr>
 <td>
 
@@ -20,13 +20,10 @@ Este material tiene como finalidad servir como apoyo para:
 </td>
 <td align="right" valign="top">
   <img width="200" height="200" alt="universidad-industrial-de-santander-vector-logo" src="https://github.com/user-attachments/assets/c3706c58-b800-44cf-ba11-36ac2561635c" />
+  <br>
+  <img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/8c8a0cbe-f396-4efe-b7fd-681e035f18ef" />
 </td>
 </tr>
 </table>
 
----
-
-<p align="left">
-  <img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/8c8a0cbe-f396-4efe-b7fd-681e035f18ef" />
-</p>
 
