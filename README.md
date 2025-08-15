@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-# REPOSITORIO COMUNICACIONES II
-=======
+
 # 📡 REPOSITORIO COMUNICACIONES II
 
 Dentro de este repositorio encontrará de manera organizada todos los pasos desarrollados en cada práctica de laboratorio de la asignatura **Comunicaciones II**.
