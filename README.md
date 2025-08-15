@@ -1,7 +1,6 @@
-
 # 📡 REPOSITORIO COMUNICACIONES II
 
-<table width="100%">
+<table width="50%">
 <tr>
 <td>
 
