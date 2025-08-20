@@ -1,5 +1,5 @@
-## Informe Practica 1 ##
-# Objetivos específicos
+# Informe Practica 1 #
+## Objetivos específicos
 
 • Identificar los aspectos fundamentales en los sistemas de tiempo real y la radio definida por
 software.
