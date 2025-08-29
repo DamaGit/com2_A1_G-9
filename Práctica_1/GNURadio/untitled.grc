@@ -45,6 +45,43 @@ blocks:
     coordinate: [296, 232.0]
     rotation: 0
     state: enabled
+- name: analog_noise_source_x_0
+  id: analog_noise_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    amp: '.000000001'
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    noise_type: analog.GR_GAUSSIAN
+    seed: '0'
+    type: float
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [200, 480.0]
+    rotation: 0
+    state: enabled
+- name: blocks_add_xx_0
+  id: blocks_add_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '2'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [424, 536.0]
+    rotation: 0
+    state: enabled
 - name: blocks_vector_source_x_0
   id: blocks_vector_source_x
   parameters:
@@ -52,9 +89,12 @@ blocks:
     alias: ''
     comment: '.
 
+      (5,0,0,0,0,0,-5,0,0,0,0)
 
 
 
+      ecg (0.0, 0.07, 0.15, 0.25, 0.32, -0.9, 0.15, 0.1, 0.05, 0.02, 0.0, 0.06, 0.12,
+      0.2, -1.0, 0.3, 0.15, 0.08, 0.02, 0.0)
 
 
 
@@ -66,13 +106,14 @@ blocks:
     repeat: 'True'
     tags: '[]'
     type: float
-    vector: (1,0,0,0,0,0,-1,0,0,0,0)
+    vector: (0.00, 0.15, 0.05, -0.10, 1.00, -0.25, 0.10, 0.35, 0.20, 0.10, 0.05, 0.00,
+      0.00, 0.00, 0.00)
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [296, 600.0]
+    coordinate: [200, 592.0]
     rotation: 0
     state: enabled
 - name: epy_block_0
@@ -775,15 +816,17 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [712, 736.0]
+    coordinate: [552, 736.0]
     rotation: 0
     state: enabled
 
 connections:
-- [blocks_vector_source_x_0, '0', epy_block_0, '0']
-- [blocks_vector_source_x_0, '0', epy_block_0_0, '0']
-- [blocks_vector_source_x_0, '0', epy_block_1, '0']
-- [blocks_vector_source_x_0, '0', qtgui_time_sink_x_0_1, '0']
+- [analog_noise_source_x_0, '0', blocks_add_xx_0, '0']
+- [blocks_add_xx_0, '0', epy_block_0, '0']
+- [blocks_add_xx_0, '0', epy_block_0_0, '0']
+- [blocks_add_xx_0, '0', epy_block_1, '0']
+- [blocks_add_xx_0, '0', qtgui_time_sink_x_0_1, '0']
+- [blocks_vector_source_x_0, '0', blocks_add_xx_0, '1']
 - [epy_block_0, '0', qtgui_time_sink_x_0_0, '0']
 - [epy_block_0_0, '0', qtgui_time_sink_x_0_0_0, '0']
 - [epy_block_1, '0', qtgui_number_sink_0_3, '0']

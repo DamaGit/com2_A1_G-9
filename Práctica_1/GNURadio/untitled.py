@@ -11,6 +11,7 @@
 
 from PyQt5 import Qt
 from gnuradio import qtgui
+from gnuradio import analog
 from gnuradio import blocks
 from gnuradio import gr
 from gnuradio.filter import firdes
@@ -387,16 +388,20 @@ class untitled(gr.top_block, Qt.QWidget):
         self.epy_block_0_0.set_block_alias("Diferenciador")
         self.epy_block_0 = epy_block_0.blk()
         self.epy_block_0.set_block_alias("Acumulador")
-        self.blocks_vector_source_x_0 = blocks.vector_source_f((1,0,0,0,0,0,-1,0,0,0,0), True, 1, [])
+        self.blocks_vector_source_x_0 = blocks.vector_source_f((0.00, 0.15, 0.05, -0.10, 1.00, -0.25, 0.10, 0.35, 0.20, 0.10, 0.05, 0.00, 0.00, 0.00, 0.00), True, 1, [])
+        self.blocks_add_xx_0 = blocks.add_vff(1)
+        self.analog_noise_source_x_0 = analog.noise_source_f(analog.GR_GAUSSIAN, .000000001, 0)
 
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.blocks_vector_source_x_0, 0), (self.epy_block_0, 0))
-        self.connect((self.blocks_vector_source_x_0, 0), (self.epy_block_0_0, 0))
-        self.connect((self.blocks_vector_source_x_0, 0), (self.epy_block_1, 0))
-        self.connect((self.blocks_vector_source_x_0, 0), (self.qtgui_time_sink_x_0_1, 0))
+        self.connect((self.analog_noise_source_x_0, 0), (self.blocks_add_xx_0, 0))
+        self.connect((self.blocks_add_xx_0, 0), (self.epy_block_0, 0))
+        self.connect((self.blocks_add_xx_0, 0), (self.epy_block_0_0, 0))
+        self.connect((self.blocks_add_xx_0, 0), (self.epy_block_1, 0))
+        self.connect((self.blocks_add_xx_0, 0), (self.qtgui_time_sink_x_0_1, 0))
+        self.connect((self.blocks_vector_source_x_0, 0), (self.blocks_add_xx_0, 1))
         self.connect((self.epy_block_0, 0), (self.qtgui_time_sink_x_0_0, 0))
         self.connect((self.epy_block_0_0, 0), (self.qtgui_time_sink_x_0_0_0, 0))
         self.connect((self.epy_block_1, 4), (self.qtgui_number_sink_0, 0))
