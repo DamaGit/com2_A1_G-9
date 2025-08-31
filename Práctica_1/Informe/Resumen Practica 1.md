@@ -1,4 +1,4 @@
-# Informe Practica I #
+# Resumen Practica I #
 ## Objetivos específicos
 
 • Identificar los aspectos fundamentales en los sistemas de tiempo real y la radio definida por
