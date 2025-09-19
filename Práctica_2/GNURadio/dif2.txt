@@ -1,0 +1,32 @@
+import numpy as np
+from gnuradio import gr
+
+class blk(gr.sync_block):
+    def __init__(self, Ts=1.0):
+        gr.sync_block.__init__(
+            self,
+            name='vec_diff_f',
+            in_sig=[np.float32],   # vlen lo define GRC (Vec Len)
+            out_sig=[np.float32],
+        )
+        self.Ts = float(Ts)
+        self.prev = 0.0  # último sample de la ráfaga anterior
+
+    def work(self, input_items, output_items):
+        X = input_items[0]   # shape: (n_vectors, vlen)
+        Y = output_items[0]  # misma shape
+
+        if X.size == 0:
+            return 0
+
+        # Procesa vector por vector para mantener continuidad entre ellos
+        for i in range(X.shape[0]):
+            xi = X[i]
+            yi = Y[i]
+            # y[0] = (x[0]-prev)/Ts ; y[1:] = (x[1:]-x[:-1])/Ts
+            yi[0]  = (xi[0] - self.prev) / self.Ts
+            yi[1:] = (xi[1:] - xi[:-1]) / self.Ts
+            self.prev = xi[-1]
+
+        # noutput_items = número de vectores escritos
+        return Y.shape[0]
