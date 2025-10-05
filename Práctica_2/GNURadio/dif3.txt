@@ -1,0 +1,44 @@
+import numpy as np
+from gnuradio import gr
+
+class blk(gr.sync_block):
+    def __init__(self, Ts=1.0):
+        gr.sync_block.__init__(
+            self,
+            name='e_Diff',
+            in_sig=[np.float32],   # si usas complejo: np.complex64
+            out_sig=[np.float32],
+        )
+        self.prev = 0.0
+        self.Ts = float(Ts)
+
+    def work(self, input_items, output_items):
+        X = input_items[0]
+        Y = output_items[0]
+
+        # Caso 1: stream escalar (vlen=1) -> X es 1D
+        if X.ndim == 1:
+            n = len(X)
+            if n == 0:
+                return 0
+            Y[0] = (X[0] - self.prev) / self.Ts
+            if n > 1:
+                Y[1:] = (X[1:] - X[:-1]) / self.Ts
+            self.prev = X[-1]
+            return len(Y)
+
+        # Caso 2: stream de vectores (vlen>1) -> X es 2D: (n_items, vlen)
+        n_items, vlen = X.shape
+        if n_items == 0:
+            return 0
+
+        for i in range(n_items):
+            xi = X[i]
+            yi = Y[i]
+            # y[0] = (x[0] - prev)/Ts ; y[1:] = (x[1:] - x[:-1])/Ts
+            yi[0]  = (xi[0] - self.prev) / self.Ts
+            if vlen > 1:
+                yi[1:] = (xi[1:] - xi[:-1]) / self.Ts
+            self.prev = xi[-1]
+
+        return n_items
